@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using PremierUIAutomation.Common_Actions;
+using PremierUIAutomation.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,39 +10,38 @@ using System.Text;
 namespace PremierUIAutomation.Fixtures
 {
     [TestFixture]
-   public class TestBase
+   public abstract partial class TestBase
     {
         protected CommonActions actions = new CommonActions();
-        public static IWebDriver browser;
+        protected static IWebDriver driver;
 
 
         [OneTimeSetUp]
-        public void OneTimeSetup()
+        protected virtual void OneTimeSetup()
         {
-           
-
-
+            string url = TestContext.Parameters["url"];
+            string browser = TestContext.Parameters["browser"];
+            TestInitiator.getBrowser(browser);
+            actions.launchBrowser(url);
         }
 
 
         [SetUp]
-        public void Setup()
+        protected virtual void Setup()
         {
         }
 
         [OneTimeTearDown]
-        public void OneTimeTeardown()
+        protected virtual void OneTimeTeardown()
         {
-            browser.Quit();
-
-
+            TestInitiator.driver.Quit();
         }
 
 
         [TearDown]
-        public void TearDown()
+        protected virtual void TearDown()
         {
-            browser.Close();
+           TestInitiator.driver.Close();
         }
 
     }

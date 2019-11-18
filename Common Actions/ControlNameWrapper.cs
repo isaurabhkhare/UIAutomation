@@ -16,7 +16,7 @@ namespace PremierUIAutomation.Common_Actions
         {
             this.Control = Control;
             this.controlname = name;
-            browser = TestBase.browser;
+            
         }
 
     }
