@@ -13,17 +13,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestScripts\Search\SearchTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ReportPortal.addins" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit.Console" Version="3.10.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
+    <PackageReference Include="ReportPortal.NUnit" Version="3.7.12" />
+    <PackageReference Include="ReportPortal.Serilog" Version="1.0.4" />
     <PackageReference Include="Selenium.Chrome.WebDriver" Version="77.0.0" />
+    <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.26.0" />
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Serilog" Version="2.9.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Environment\" />
     <Folder Include="NewFolder\" />
+    <Folder Include="TestScripts\Search\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ReportPortal.config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

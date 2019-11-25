@@ -1,0 +1,17 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/reportportal/agent-net-vstest/master/src/ReportPortal.VSTest.TestLogger/ReportPortal.config.schema",
+  "enabled": true,
+  "server": {
+    "url": "https://web.demo.reportportal.io/api/v1/",
+    "project": "isaurabhkhare_personal",
+    "authentication": {
+      "uuid": "42c9c017-5732-4d03-afc6-43aaaf0e2682"
+    }
+  },
+  "launch": {
+    "name": "VS Test Demo Launch",
+    "description": "this is description",
+    "debugMode": false,
+    "tags": [ "t1", "t2" ]
+  }
+}

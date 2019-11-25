@@ -9,40 +9,38 @@ using System.Text;
 
 namespace PremierUIAutomation.Fixtures
 {
-    [TestFixture]
-   public abstract partial class TestBase
+   [SetUpFixture]
+   public abstract class TestBase 
     {
-        protected CommonActions actions = new CommonActions();
-        protected static IWebDriver driver;
+       protected CommonActions actions;
 
+       public TestBase(IWebDriver _driver)
+        {
+            actions = new CommonActions(_driver);
+           
+        }
+       
 
         [OneTimeSetUp]
-        protected virtual void OneTimeSetup()
-        {
-            string url = TestContext.Parameters["url"];
-            string browser = TestContext.Parameters["browser"];
-            TestInitiator.getBrowser(browser);
-            actions.launchBrowser(url);
-        }
-
+        protected abstract void OneTimeSetup();
+        //{
+        //    string url = TestContext.Parameters["url"];
+        //    string browser = TestContext.Parameters["browser"];
+        //    //TestInitiator.getBrowser(browser);
+        //    //actions.launchBrowser(url);
+        //}
 
         [SetUp]
-        protected virtual void Setup()
-        {
-        }
+        protected abstract void Setup();
+
 
         [OneTimeTearDown]
-        protected virtual void OneTimeTeardown()
-        {
-            TestInitiator.driver.Quit();
-        }
+        protected abstract void OneTimeTeardown();
+     
 
 
-        [TearDown]
-        protected virtual void TearDown()
-        {
-           TestInitiator.driver.Close();
-        }
-
+    [TearDown]
+        protected abstract void TearDown();
+      
     }
 }
