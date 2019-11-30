@@ -3,13 +3,8 @@
 <!-- For more information, see https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019  -->
 <RunSettings>
     <TestRunParameters>
-    <Parameter name="url" value="http://www.makemytrip.com" />
+    <Parameter name="url" value="http://www.facebook.com"/>
     <Parameter name="browser" value="all" />
   </TestRunParameters>
- 
-  
   <!-- Adapter Specific sections -->
-
-  
-
 </RunSettings>

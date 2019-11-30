@@ -14,9 +14,9 @@ namespace PremierUIAutomation.Fixtures
     {
        protected CommonActions actions;
 
-       public TestBase(IWebDriver _driver)
+       public TestBase()
         {
-            actions = new CommonActions(_driver);
+           // actions = new CommonActions(_driver);
            
         }
        

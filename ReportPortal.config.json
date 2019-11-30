@@ -5,12 +5,12 @@
     "url": "https://web.demo.reportportal.io/api/v1/",
     "project": "isaurabhkhare_personal",
     "authentication": {
-      "uuid": "42c9c017-5732-4d03-afc6-43aaaf0e2682"
+      "uuid": "8b95fc74-3f77-4503-8285-b5fe99e522d5"
     }
   },
   "launch": {
-    "name": "VS Test Demo Launch",
-    "description": "this is description",
+    "name": "Facebook Login Tests",
+    "description": "Test Login Functionality for Facebook",
     "debugMode": false,
     "tags": [ "t1", "t2" ]
   }

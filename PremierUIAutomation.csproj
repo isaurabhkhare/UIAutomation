@@ -13,6 +13,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="TestScripts\Search\SearchTests.cs" />
   </ItemGroup>
 
@@ -23,6 +29,7 @@
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Microsoft.TestPlatform" Version="16.4.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit.Console" Version="3.10.0" />
@@ -37,12 +44,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Environment\" />
     <Folder Include="NewFolder\" />
     <Folder Include="TestScripts\Search\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Environment\Login.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ReportPortal.config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
