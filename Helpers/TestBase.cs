@@ -1,25 +1,19 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using PremierUIAutomation.Common_Actions;
-using PremierUIAutomation.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PremierUIAutomation.Fixtures
 {
-   [SetUpFixture]
-   public abstract class TestBase 
+    [SetUpFixture]
+    public abstract class TestBase
     {
-       protected CommonActions actions;
+        protected CommonActions actions;
 
-       public TestBase()
+        public TestBase()
         {
-           // actions = new CommonActions(_driver);
-           
+            // actions = new CommonActions(_driver);
+
         }
-       
+
 
         [OneTimeSetUp]
         protected abstract void OneTimeSetup();
@@ -36,11 +30,11 @@ namespace PremierUIAutomation.Fixtures
 
         [OneTimeTearDown]
         protected abstract void OneTimeTeardown();
-     
 
 
-    [TearDown]
+
+        [TearDown]
         protected abstract void TearDown();
-      
+
     }
 }

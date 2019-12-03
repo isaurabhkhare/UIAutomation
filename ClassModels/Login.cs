@@ -1,19 +1,22 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PremierUIAutomation
 {
 
     public interface IPremier<T>
     {
+        [JsonProperty("Positive tests1")]
         List<T> PositiveTests { get; set; }
+        [JsonProperty("Negative tests1")]
         List<T> NegativeTests { get; set; }
     }
 
     public partial class LoginTestCollection : IPremier<LoginTestData>
     {
+        [JsonProperty("Positive tests")]
         public List<LoginTestData> PositiveTests { get; set; }
+        [JsonProperty("Negative tests")]
         public List<LoginTestData> NegativeTests { get; set; }
     }
 

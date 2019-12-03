@@ -1,0 +1,25 @@
+﻿{
+  "accountClassification": {
+    "value": "10400",
+    "Metadata": {
+      "label": "Portfolio Number",
+      "type": "application/vnd.dwolla.v1.hal+json",
+      "resource-type": "funding-source"
+    }
+
+
+  },
+
+  "rateinfo": {
+    "value":{
+    "key": "104",
+     "value" :  "10500"
+    },
+    "Metadata": {
+      "label": "Portfolio Number",
+      "type": "application/vnd.dwolla.v1.hal+json",
+      "resource-type": "funding-source"
+    }
+
+  }
+ }

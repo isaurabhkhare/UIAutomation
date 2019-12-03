@@ -51,6 +51,12 @@
     <None Update="Environment\Login.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="msedgedriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="myjson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ReportPortal.config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

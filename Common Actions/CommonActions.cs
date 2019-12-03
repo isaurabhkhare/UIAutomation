@@ -1,15 +1,13 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using PremierUIAutomation.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PremierUIAutomation.Common_Actions
 {
-   public class CommonActions
+    public class CommonActions
     {
         public IWebDriver Commdriver;
         public CommonActions(IWebDriver _driver)
@@ -29,11 +27,12 @@ namespace PremierUIAutomation.Common_Actions
 
         public void launchBrowser(string url)
         {
-            TestInitiator.driver.Url =url;
+            TestInitiator.driver.Url = url;
         }
 
         public void getBrowser(string browser, string url)
         {
+
             if (browser.ToLower() == "firefox")
             {
 
@@ -50,15 +49,18 @@ namespace PremierUIAutomation.Common_Actions
                 Commdriver.Url = url;
 
             }
-            else if (browser.ToLower() == "ie")
+            else if (browser.ToLower() == "edge")
             {
+                var anaheimService = ChromeDriverService.CreateDefaultService(@"F:\\Documents C drive\\Visual Studio 2019\\Projects\\NUnitTestProject3\\bin\Debug\\netcoreapp3.0\\","msedgedriver.exe");
+                var anaheimOptions = new ChromeOptions
+                {
+                    BinaryLocation = @"C:\\Program Files (x86)\\Microsoft\\Edge Beta\\Application\\msedge.exe"
+                };
 
-                Commdriver = new InternetExplorerDriver();
+                Commdriver = new ChromeDriver(anaheimService, anaheimOptions);
                 Commdriver.Manage().Window.Maximize();
                 Commdriver.Url = url;
-
             }
-
         }
     }
 }

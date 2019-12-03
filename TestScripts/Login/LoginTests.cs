@@ -1,36 +1,34 @@
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using PremierUIAutomation.Common_Actions;
 using PremierUIAutomation.Fixtures;
-using PremierUIAutomation.Helpers;
 using ReportPortal.Serilog;
 using Serilog;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 
 namespace PremierUIAutomation.TestScripts.Login
 {
 
-   [TestFixture,TestFixtureSource("FindBrowser")]
-   [Parallelizable(ParallelScope.Fixtures)]
-   
-    public class LoginTest : TestBase 
+    [TestFixture, TestFixtureSource("FindBrowser")]
+    [Parallelizable(ParallelScope.Fixtures)]
+
+    public class LoginTest : TestBase
 
     {
         protected static string browserType;
         public IWebDriver driver = null;
-        
-         public LoginTest(string obj)   {
+
+        public LoginTest(string obj)
+        {
             browserType = obj;
         }
         #region Custom Fixture
         protected override void OneTimeSetup()
         {
-            Log.Logger = new LoggerConfiguration().WriteTo.ReportPortal().CreateLogger();
+            //Log.Logger = new LoggerConfiguration().WriteTo.ReportPortal().CreateLogger();
             actions = new CommonActions(driver);
             string url = TestContext.Parameters["url"];
             string browser = TestContext.Parameters["browser"];
@@ -52,6 +50,19 @@ namespace PremierUIAutomation.TestScripts.Login
         [Test, TestCaseSource("LoginPositiveTests")]
         public void LoginPositive(string obj1, string obj2)
         {
+            //var json = System.IO.File.ReadAllText("myjson.json");
+            //var jo = JObject.Parse(json);
+            //var LabelValues = new List<JsonValues>();
+            //foreach (var item in jo )
+            //{
+            //    string v = item.Key;
+            //    var j = jo[v];
+            //    var Json = JsonConvert.DeserializeObject<JsonValues>(j.ToString());
+            //    LabelValues.Add(Json);
+            //}
+
+            //Console.WriteLine(LabelValues);
+
             Assert.AreEqual("Facebook – log in or sign up", actions.getTitle());
             Log.Information("My log message");
             actions.Commdriver.FindElement(By.Id("email")).SendKeys(obj1.ToString());
@@ -68,7 +79,7 @@ namespace PremierUIAutomation.TestScripts.Login
         }
 
 
-        [Test,TestCaseSource("LoginNegativeTests"),Parallelizable]
+        [Test, TestCaseSource("LoginNegativeTests"), Parallelizable]
         public void LoginNegative(string obj1, string obj2)
         {
             try
@@ -85,7 +96,7 @@ namespace PremierUIAutomation.TestScripts.Login
             }
             catch (Exception)
             {
-                Log.Information("Following test failed on browser -> "+browserType+"  "+ TestContext.CurrentContext.Test.FullName + browserType);
+                Log.Information("Following test failed on browser -> " + browserType + "  " + TestContext.CurrentContext.Test.FullName + browserType);
             }
         }
 
@@ -95,12 +106,17 @@ namespace PremierUIAutomation.TestScripts.Login
             string browser1 = TestContext.Parameters["browser"];
             if (browser1.ToLower() == "chrome" && browser1 != null)
             {
-                BrowserList.Add("chrome");
+                BrowserList.Add(browser1);
             }
             else if (browser1.ToLower() == "firefox" && browser1 != null)
             {
-                BrowserList.Add("firefox");
+                BrowserList.Add(browser1);
             }
+            else if (browser1.ToLower() == "edge" && browser1 != null)
+            {
+                BrowserList.Add(browser1);
+            }
+
             else if (browser1.ToLower() == "all" && browser1 != null)
             {
                 BrowserList.Add("chrome");
@@ -122,7 +138,7 @@ namespace PremierUIAutomation.TestScripts.Login
             foreach (var item in testdata.PositiveTests)
             {
                 string[] str = { item.Username.ToString(), item.Password.ToString() };
-                TestNamedata = new TestCaseData(str).SetName(TestContext.CurrentContext.Test.Name + ""+ browserType);
+                TestNamedata = new TestCaseData(str).SetName(TestContext.CurrentContext.Test.Name + "" + browserType);
                 yield return TestNamedata;
             }
         }

@@ -1,6 +1,6 @@
 ﻿{
 
-  "PositiveTests": [
+  "Positive Tests": [
     {
       "Username" :  "saurabh_hotdude@yahoo.com",
       "Password" :  "password-3" 
@@ -8,7 +8,7 @@
 
     }
   ],
-  "NegativeTests": [
+  "Negative Tests": [
     {
 
       "Username": "saurabh_hotdude@yahoo.com",
